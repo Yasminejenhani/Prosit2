@@ -4,8 +4,8 @@ public class Zoo {
     Animal[] animals;
     String name;
     String city;
-    int nbrCages;
-
+    final int nbrCages;
+    int nbrAnimals;
     public Zoo(String name, String city, int nbrCages) {
         animals = new Animal[nbrCages];
         this.name = name;
@@ -32,6 +32,7 @@ public class Zoo {
             if (animals[i] == null) {
                 animals[i] = animal;
                 isAdded = true;
+                nbrAnimals=nbrAnimals+1;
                 break; // Sortir de la boucle une fois que l'animal a été ajouté.
             }
         }
@@ -72,6 +73,24 @@ public class Zoo {
         }
         System.out.println("Cet animal n'existe pas dans le zoo, impossible de le supprimer.");
         return false;
+    }
+    boolean isZooFull(){
+
+       if (nbrAnimals<nbrCages){
+           return false;
+       }else {
+       return true;
+
+       }
+    }
+    public static Zoo compareZoo(Zoo z1, Zoo z2){
+        if (z1.nbrAnimals < z2.nbrAnimals){
+            return z2;
+        } else if (z1.nbrAnimals > z2.nbrAnimals) {
+            return z1;
+        }else {
+            return null;
+        }
     }
     }
 
