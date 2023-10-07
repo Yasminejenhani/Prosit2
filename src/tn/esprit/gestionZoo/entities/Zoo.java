@@ -1,16 +1,30 @@
-import java.util.Scanner;
+package tn.esprit.gestionZoo.entities;
 
 public class Zoo {
-    Animal[] animals;
-    String name;
-    String city;
-    final int nbrCages;
-    int nbrAnimals;
+ private Animal[] animals;
+ private String name;
+ private String city;
+ private final int nbrCages;
+ private int nbrAnimals;
     public Zoo(String name, String city, int nbrCages) {
         animals = new Animal[nbrCages];
         this.name = name;
         this.city = city;
         this.nbrCages = nbrCages;
+    }
+    public void setName(String name) {
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        }
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getCity() {
+        return city;
     }
 
     @Override
@@ -28,33 +42,35 @@ public class Zoo {
 
     public boolean addAnimal(Animal animal) {
         boolean isAdded = false;
-        for (int i = 0; i < animals.length; i++) {
-            if (animals[i] == null) {
-                animals[i] = animal;
-                isAdded = true;
-                nbrAnimals=nbrAnimals+1;
-                break; // Sortir de la boucle une fois que l'animal a été ajouté.
+        if (!isZooFull()) {
+            for (int i = 0; i < animals.length; i++) {
+                if (animals[i] == null) {
+                    animals[i] = animal;
+                    isAdded = true;
+                    nbrAnimals = nbrAnimals + 1;
+                    break; // Sortir de la boucle une fois que l'animal a été ajouté.
+                }
             }
         }
         return isAdded;
     }
 
     public void displayAllAnimals() {
-
         for (int i = 0; i < animals.length; i++) {
             if (animals[i] != null) {
-                System.out.println("le nom du " + i + " ème animal :" + animals[i].name + " ,la famille : " + animals[i].family + " ,l'age est : " + animals[i].age);
+                System.out.println("le nom du " + i + " ème animal :" + animals[i].getName() + " ,la famille : " + animals[i].getFamily() + " ,l'age est : " + animals[i].getAge());
             } else {
                 break;
             }
         }
     }
 
+
     int searchAnimal(Animal animal) {
         int result = -1;
 
         for (int i = 0; i < animals.length; i++) {
-            if (animals[i] != null && animal.name.equals(animals[i].name)) {
+            if (animals[i] != null && animal.getName().equals(animals[i].getName())) {
                 result = i;
                 System.out.println("l'animal d'indice "+i+ " a le meme nom que l'animal passé en paramètre");
                 break;
@@ -65,7 +81,7 @@ public class Zoo {
     }
     boolean removeAnimal(Animal animal) {
         for (int i = 0; i < animals.length; i++) {
-            if (animals[i] != null && animal.name.equals(animals[i].name)) {
+            if (animals[i] != null && animal.getName().equals(animals[i].getName())) {
                 animals[i] = null;
                 System.out.println("L'animal a été supprimé avec succès !");
                 return true;
@@ -74,7 +90,7 @@ public class Zoo {
         System.out.println("Cet animal n'existe pas dans le zoo, impossible de le supprimer.");
         return false;
     }
-    boolean isZooFull(){
+    public boolean isZooFull(){
 
        if (nbrAnimals<nbrCages){
            return false;

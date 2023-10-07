@@ -1,3 +1,8 @@
+package tn.esprit.gestionZoo.main;
+
+import tn.esprit.gestionZoo.entities.Animal;
+import tn.esprit.gestionZoo.entities.Zoo;
+
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
