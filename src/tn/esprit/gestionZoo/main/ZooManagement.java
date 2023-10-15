@@ -72,8 +72,8 @@ public class ZooManagement {
         Aquatic fish = new Aquatic("fish1", "daurade", 2, true, "sea");
         Terrestrial tigre = new Terrestrial("tigers", "tiger2", 3, true, 4);
 
-        Dolphin dolphin = new Dolphin("Oceans", 25.5f);
-        Penguin penguin = new Penguin("Antarctic", 10.0f);
+        Dolphin dolphin = new Dolphin("delphins", "dauphin1",12,true,"oceans",25.5f);
+        Penguin penguin = new Penguin("penguins","penguin1",28,true,"Antarctic", 10.0f);
         System.out.println(fish);
         System.out.println(tigre);
         System.out.println(dolphin);
