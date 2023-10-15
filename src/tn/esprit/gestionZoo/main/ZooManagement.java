@@ -1,7 +1,6 @@
 package tn.esprit.gestionZoo.main;
 
-import tn.esprit.gestionZoo.entities.Animal;
-import tn.esprit.gestionZoo.entities.Zoo;
+import tn.esprit.gestionZoo.entities.*;
 
 import java.util.Scanner;
 
@@ -70,6 +69,19 @@ public class ZooManagement {
         //zoo1.searchAnimal(elephant);
         //zoo1.removeAnimal(elephant);
         //zoo1.displayAllAnimals();
+        Aquatic fish = new Aquatic("fish1", "daurade", 2, true, "sea");
+        Terrestrial tigre = new Terrestrial("tigers", "tiger2", 3, true, 4);
 
+        Dolphin dolphin = new Dolphin("Oceans", 25.5f);
+        Penguin penguin = new Penguin("Antarctic", 10.0f);
+        System.out.println(fish);
+        System.out.println(tigre);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+
+        dolphin.swim();
+        fish.swim();
+        penguin.swim(); //je remarque que meme si je n'ai pas défini la méthode swim dans la classe penguin , elle a hérité cette méthode de la classe mère aquatic
     }
+
 }
