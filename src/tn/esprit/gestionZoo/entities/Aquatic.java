@@ -17,4 +17,6 @@ public Aquatic(){}
         System.out.println("This aquatic animal is swimming");
     }
 
+   //couldn' do the method equals , i didn't understand the question
+
 }

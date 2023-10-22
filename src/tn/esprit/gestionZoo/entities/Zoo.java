@@ -2,6 +2,8 @@ package tn.esprit.gestionZoo.entities;
 
 public class Zoo {
  private Animal[] animals;
+ Aquatic[] aquaticAnimals = new Aquatic[10];
+
  private String name;
  private String city;
  private final int nbrCages;
@@ -64,8 +66,6 @@ public class Zoo {
             }
         }
     }
-
-
     int searchAnimal(Animal animal) {
         int result = -1;
 
@@ -78,6 +78,7 @@ public class Zoo {
         }
 
         return result;
+
     }
     boolean removeAnimal(Animal animal) {
         for (int i = 0; i < animals.length; i++) {
@@ -108,7 +109,51 @@ public class Zoo {
             return null;
         }
     }
+    public void addAquaticAnimal(Aquatic aquatic) {
+        if (!isZooFull()) {
+
+            for (int i = 0; i < aquaticAnimals.length; i++) {
+
+                if (aquaticAnimals[i] == null) {
+                    aquaticAnimals[i] = aquatic;
+
+                    System.out.println("Aquatic animal added successfully.");
+                    break;
+                } else {
+                    System.out.println("Aquatic animal could not be added. The aquatic animals array is full.");
+                }
+            }
+        }
     }
+    public float maxPenguinSwimmingDepth() {
+        float maxDepth = 0.f;
+
+        for (Aquatic aquaticAnimal : aquaticAnimals) {
+
+                Penguin penguin = (Penguin) aquaticAnimal;
+                maxDepth = Math.max(maxDepth, penguin.getSwimmingDepth());
+
+        }
+
+        return maxDepth;
+    }
+    public void displayNumberOfAquaticsByType(){
+        int nbDolphins = 0 ;
+        int nbPenguins =0 ;
+        for (Aquatic aquaticAnimal : aquaticAnimals) {
+            if (Dolphin.family=="delphins"){
+                nbDolphins++;
+            }
+            if(Penguin.family=="penguins"){
+                nbPenguins++;
+            }
+        }
+        System.out.println("le nombre de dolphins est :"+nbDolphins+" Et le nombre des penguins = " +nbPenguins);
+        }
+    }
+
+
+
 
 
 

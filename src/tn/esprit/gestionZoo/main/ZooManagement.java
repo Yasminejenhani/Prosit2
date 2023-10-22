@@ -74,14 +74,21 @@ public class ZooManagement {
 
         Dolphin dolphin = new Dolphin("delphins", "dauphin1",12,true,"oceans",25.5f);
         Penguin penguin = new Penguin("penguins","penguin1",28,true,"Antarctic", 10.0f);
-        System.out.println(fish);
-        System.out.println(tigre);
-        System.out.println(dolphin);
+      //  System.out.println(fish);
+       // System.out.println(tigre);
+         System.out.println(dolphin);
         System.out.println(penguin);
+        Aquatic shark = new Aquatic("Fish", "Shark", 5, false, "Ocean");
+        zoo1.addAquaticAnimal(shark);
+        System.out.println(shark);
 
         dolphin.swim();
         fish.swim();
         penguin.swim(); //je remarque que meme si je n'ai pas défini la méthode swim dans la classe penguin , elle a hérité cette méthode de la classe mère aquatic
+        shark.swim();
+        //INSTRUCTION 27 : je ne remarque rien , je peux appeler la méthode swim
+        zoo1.displayNumberOfAquaticsByType(); //i have a problem in the incrementation of nbDolphins and nbPenguins
     }
+
 
 }

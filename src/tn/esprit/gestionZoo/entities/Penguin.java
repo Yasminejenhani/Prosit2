@@ -12,4 +12,8 @@ public class Penguin extends Aquatic{
     public String toString() {
         return "Penguin's Family: " + family + ", Name: " + name + ", Age: " + age + ", Is mammal: " + isMammal +" Habitat: " + habitat + ",  Swimming Depth: " + SwimmingDepth;
     }
+
+    public float getSwimmingDepth() {
+        return SwimmingDepth;
+    }
 }
