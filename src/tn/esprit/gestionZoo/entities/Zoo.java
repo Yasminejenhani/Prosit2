@@ -42,20 +42,26 @@ public class Zoo {
         System.out.println("ZooName = " + this.name + ", City = " + this.city + " , nbrCages = " + this.nbrCages);
     }
 
-    public boolean addAnimal(Animal animal) {
-        boolean isAdded = false;
-        if (!isZooFull()) {
-            for (int i = 0; i < animals.length; i++) {
-                if (animals[i] == null) {
-                    animals[i] = animal;
-                    isAdded = true;
-                    nbrAnimals = nbrAnimals + 1;
-                    break; // Sortir de la boucle une fois que l'animal a été ajouté.
-                }
+    public void addAnimal(Animal animal) throws ZooFullException, AgeException {
+        if (nbrAnimals >= nbrCages) {
+            throw new ZooFullException("Zoo is full. Cannot add more animals.");
+        }
+
+        if (animal.getAge() < 0) {
+            throw new AgeException("Animal's age cannot be negative.");
+        }
+
+        for (int i = 0; i < animals.length; i++) {
+            if (animals[i] == null) {
+                animals[i] = animal;
+                nbrAnimals++;
+                System.out.println(nbrAnimals);
+                break;
             }
         }
-        return isAdded;
     }
+
+
 
     public void displayAllAnimals() {
         for (int i = 0; i < animals.length; i++) {
@@ -137,19 +143,22 @@ public class Zoo {
 
         return maxDepth;
     }
-    public void displayNumberOfAquaticsByType(){
-        int nbDolphins = 0 ;
-        int nbPenguins =0 ;
+    public void displayNumberOfAquaticsByType() {
+        int nbDolphins = 0;
+        int nbPenguins = 0;
+
         for (Aquatic aquaticAnimal : aquaticAnimals) {
-            if (Dolphin.family=="delphins"){
+            if (aquaticAnimal instanceof Dolphin) {
                 nbDolphins++;
             }
-            if(Penguin.family=="penguins"){
+            if (aquaticAnimal instanceof Penguin) {
                 nbPenguins++;
             }
         }
-        System.out.println("le nombre de dolphins est :"+nbDolphins+" Et le nombre des penguins = " +nbPenguins);
-        }
+
+        System.out.println("le nombre de dolphins est : " + nbDolphins + " Et le nombre des penguins = " + nbPenguins);
+    }
+
     }
 
 

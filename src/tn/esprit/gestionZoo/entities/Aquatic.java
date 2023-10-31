@@ -13,7 +13,8 @@ public Aquatic(){}
     public String toString() {
         return "Aquatic's Family: " + family + ", Name: " + name + ", Age: " + age + ", Is mammal: " + isMammal + ", Habitat: " + habitat ;
     }
-    public void swim(){
+    public  void swim(){
+
         System.out.println("This aquatic animal is swimming");
     }
 
