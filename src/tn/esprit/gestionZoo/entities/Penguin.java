@@ -16,4 +16,13 @@ public class Penguin extends Aquatic{
     public float getSwimmingDepth() {
         return SwimmingDepth;
     }
+
+    @Override
+    public void eatMeat(Food meat) {
+        System.out.println("this animal is eating Meat");
+    }
+    @Override
+    public void swim() {
+
+    }
 }

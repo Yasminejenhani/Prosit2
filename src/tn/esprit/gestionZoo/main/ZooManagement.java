@@ -25,7 +25,7 @@ public class ZooManagement {
 //
        Animal lion = new Animal("Lions", "lion1", 12, true);
        Animal tiger = new Animal("Tigers", "tiger1", 15, true);
-       Animal elephant = new Animal("Elephants", "elephant1", -16, true);
+       Animal elephant = new Animal("Elephants", "elephant1", 16, true);
 //        //boolean lionAdded = zoo1.addAnimal(lion);
 //        //boolean tigerAdded = zoo2.addAnimal(tiger);
 //        //boolean elephantAdded = belvedere.addAnimal(elephant);
@@ -34,7 +34,7 @@ public class ZooManagement {
 //        //zoo1.addAnimal(tiger);
 //        //zoo1.addAnimal(elephant);
 //
-        Animal giraffe = new Animal("Giraffes", "giraffe1", -9, true);
+   //     Animal giraffe = new Animal("Giraffes", "giraffe1", -9, true);
 ////        Animal rhino = new Animal("Rhinos", "rhino1", 14, true);
 ////        Animal zebra = new Animal("Zebras", "zebra1", 7, true);
 //
@@ -92,13 +92,36 @@ public class ZooManagement {
             zoo1.addAnimal(lion);
             zoo1.addAnimal(tiger);
             zoo1.addAnimal(elephant);
-            zoo1.addAnimal(giraffe);
+          //  zoo1.addAnimal(giraffe);
+
         } catch (ZooFullException e) {
             System.out.println("Zoo is full: " + e.getMessage());
         } catch (AgeException e) {
             System.out.println("Invalid age: " + e.getMessage());
         }
+        Penguin p1 = new Penguin("penguins", "penguin", 3, true, "Ocean", 100.6f);
+        System.out.println(p1);
+        p1.eatMeat(Food.MEAT);
+
+
+        Dolphin d1 = new Dolphin("Delphins", "Delphin1", 5, true, "Ocean", 100.25f);
+        System.out.println(d1);
+        d1.eatMeat(Food.MEAT);
+
+        Terrestrial t1 = new Terrestrial("Terrestials", "Lion", 4, true, 4);
+        System.out.println(t1);
+        t1.eatPlantAndMeet(Food.BOTH);
+
+        Terrestrial t2 = new Terrestrial("Terrestials", "Elephant", 6, true, 4);
+        System.out.println(t2);
+        t2.eatPlant(Food.PLANT);
+
+
+
+
+
     }
+
 
 
 }
