@@ -25,6 +25,7 @@ public class Employe implements Comparable<Employe>{
         return "Employe{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
                 ", nom_departement='" + nom_departement + '\'' +
                 ", grade='" + grade + '\'' +
                 '}';
