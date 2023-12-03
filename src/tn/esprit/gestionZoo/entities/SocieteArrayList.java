@@ -14,7 +14,8 @@ public class SocieteArrayList implements IGestion<Employe>{
     }
     @Override
     public void ajouterEmploye(Employe employe) {
-    liste_employe.add(employe);
+
+        liste_employe.add(employe);
     }
 
     @Override
@@ -33,16 +34,19 @@ public class SocieteArrayList implements IGestion<Employe>{
 
     @Override
     public void supprimerEmploye(Employe employe) {
-    liste_employe.remove(employe);
+
+        liste_employe.remove(employe);
     }
 
     @Override
     public void displayEmploye() {
+
         System.out.println(liste_employe);
     }
 
     @Override
     public void trierEmployeParId() {
+
         Collections.sort(liste_employe);
     }
 
